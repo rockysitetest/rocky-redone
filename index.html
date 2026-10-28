@@ -1,8 +1,9 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
   <title>Rocky Reborn | Home</title>
 
   <link rel="icon" type="image/png" href="images/rocky-favicon.png">
@@ -10,10 +11,8 @@
   <link rel="icon" type="image/png" sizes="16x16" href="images/rocky-favicon.png">
   <link rel="apple-touch-icon" sizes="180x180" href="images/rocky-favicon.png">
 
-  <link rel="stylesheet" href="style.css">
   <link rel="stylesheet" href="index.css">
 
-  <!-- Scramjet -->
   <script src="/scram/scramjet.all.js"></script>
   <script src="baremux/index.js" defer></script>
   <script src="epoxy/index.js" defer></script>
@@ -23,27 +22,19 @@
   <script src="loader-messages.js"></script>
   <script src="global-hub.js" defer></script>
 
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8373843490344171"
+    crossorigin="anonymous"></script>
+
   <style>
     body {
-      margin: 0;
       min-height: 100vh;
-      font-family: Arial, sans-serif;
-      color: white;
-      text-align: center;
-      background: url('images/rocky-water-clean.gif') no-repeat center center fixed;
-      background-size: cover;
-      position: relative;
     }
 
-    body::after {
-      content: '';
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      background-color: rgba(0,0,0,0.5);
-      z-index: -1;
+    main {
+      min-height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
     }
 
     body.sj-proxied main {
@@ -61,64 +52,26 @@
       z-index: 1;
     }
 
-    /* ===== SIDE NAV ===== */
-
-    .side-header {
-      position: fixed;
-      top: 0;
-      left: 0;
-      height: 100vh;
-      z-index: 1000;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-    }
-
-    .side-icon {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-    }
-
-    .side-icon img {
-      display: block;
-    }
-
-    /* ===== MAIN ===== */
-
-    main {
-      min-height: 100vh;
-      padding: 120px 20px 40px;
-      box-sizing: border-box;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
-    }
-
     .home-wrap {
       width: 100%;
-      max-width: 720px;
+      max-width: 900px;
       padding: 32px;
       text-align: center;
-      box-sizing: border-box;
     }
 
     .home-title {
       font-size: 64px;
       font-weight: 800;
       letter-spacing: 1px;
-      color: var(--fg, white);
+      color: var(--fg);
     }
 
     .home-version {
       margin-top: 14px;
       font-size: 11px;
       font-family: "Press Start 2P";
-      color: var(--fg-dim, #aaa);
+      color: var(--fg-dim);
     }
-
-    /* ===== CLOCK + BATTERY ===== */
 
     .home-status {
       margin-top: 18px;
@@ -128,22 +81,20 @@
       justify-content: center;
       align-items: center;
       gap: 10px;
-      color: var(--fg-dim, #aaa);
+      color: var(--fg-dim);
     }
 
     .home-status #clock {
-      color: var(--fg, white);
+      color: var(--fg);
     }
 
     .home-status #battery {
-      color: var(--accent, #0284d4);
+      color: var(--accent);
     }
 
     .status-sep {
       opacity: 0.4;
     }
-
-    /* ===== SEARCH ===== */
 
     .proxy-wrap {
       margin-top: 28px;
@@ -159,66 +110,49 @@
       font-size: 16px;
       border-radius: 16px;
       background: rgba(255,255,255,0.03);
-      color: var(--fg, white);
-      border: 2px solid color-mix(in srgb, var(--accent, #0284d4) 55%, transparent);
+      color: var(--fg);
+      border: 2px solid color-mix(in srgb, var(--accent) 55%, transparent);
       outline: none;
       transition: border-color .2s ease, box-shadow .2s ease;
-      box-sizing: border-box;
     }
 
     #sj-address::placeholder {
-      color: var(--fg-dim, #aaa);
+      color: var(--fg-dim);
     }
 
     #sj-address:focus {
-      border-color: var(--accent, #0284d4);
-      box-shadow: 0 0 0 4px color-mix(in srgb, var(--accent, #0284d4) 22%, transparent);
+      border-color: var(--accent);
+      box-shadow: 0 0 0 4px color-mix(in srgb, var(--accent) 22%, transparent);
     }
-
-    #sj-error {
-      color: #ff5555;
-      margin-top: 10px;
-    }
-
-    /* ===== ROCKY SPLASH ===== */
-
-    #splash {
-      font-size: 20px;
-      margin: 15px 0;
-      font-weight: bold;
-      color: #ffd700;
-      text-shadow: 2px 2px 4px black;
-    }
-
-    /* ===== ROCKY BUTTONS ===== */
 
     .button-row {
       display: flex;
       justify-content: center;
       gap: 15px;
       flex-wrap: wrap;
-      margin-top: 20px;
+      margin-top: 28px;
     }
 
-    button {
-      color: black;
-      background-color: #0284d4;
-      padding: 8px 15px;
-      border: none;
-      font-size: 18px;
-      border-radius: 5px;
+    .button-row button {
+      color: var(--fg);
+      background: var(--accent-soft);
+      padding: 10px 16px;
+      border: 2px solid var(--accent);
+      font-family: "Press Start 2P", system-ui, sans-serif;
+      font-size: 10px;
+      border-radius: 8px;
       cursor: pointer;
-      transition: 0.4s all;
+      transition: 0.2s ease;
     }
 
-    button:hover {
-      background-color: #026bb2;
+    .button-row button:hover {
+      background: var(--accent);
+      color: #000;
+      transform: translateY(-2px);
     }
-
-    /* ===== SOCIAL BUTTONS ===== */
 
     .social-row {
-      margin-top: 25px;
+      margin-top: 28px;
       display: flex;
       justify-content: center;
       gap: 20px;
@@ -231,13 +165,14 @@
       justify-content: center;
       width: 45px;
       height: 45px;
-      background: rgba(255,255,255,0.1);
+      background: rgba(255,255,255,0.06);
       border-radius: 50%;
-      transition: background 0.3s;
+      transition: background 0.3s, transform 0.2s;
     }
 
     .social-row a:hover {
-      background: rgba(255,255,255,0.3);
+      background: rgba(255,255,255,0.15);
+      transform: translateY(-3px);
     }
 
     .social-row img {
@@ -245,33 +180,60 @@
       height: 24px;
     }
 
-    /* ===== FOOTER ===== */
-
-    footer {
-      background-color: rgba(0,0,0,0.7);
-      color: #ccc;
-      padding: 20px 0;
+    .home-footer {
+      width: 100%;
+      padding: 20px;
       text-align: center;
-      font-size: 14px;
+      color: var(--fg-dim);
+      font-family: system-ui, sans-serif;
+      font-size: 13px;
+      line-height: 1.8;
     }
 
-    footer a {
-      color: #ccc;
+    .home-footer a {
+      color: var(--fg);
     }
 
-    footer a:hover {
-      color: #0284d4;
+    .home-footer a:hover {
+      color: var(--accent);
     }
 
-    h1 span {
-      color: #0284d4;
+    #splash {
+      margin: 18px 0;
+      font-family: "Press Start 2P", system-ui, sans-serif;
+      font-size: 10px;
+      color: var(--accent);
+      line-height: 1.7;
+    }
+
+    @media (max-width: 700px) {
+      .home-title {
+        font-size: 38px;
+      }
+
+      .home-wrap {
+        padding: 24px 18px;
+      }
+
+      .button-row {
+        flex-direction: column;
+        align-items: center;
+      }
+
+      .button-row button {
+        width: 100%;
+        max-width: 340px;
+      }
+
+      .social-row {
+        gap: 12px;
+      }
     }
   </style>
 </head>
 
 <body>
 
-<!-- SIDE NAV -->
 <nav class="side-header">
   <a href="index.html" class="side-icon" data-icon="home"><img /></a>
   <a href="games.html" class="side-icon" data-icon="games"><img /></a>
@@ -289,43 +251,54 @@
   <div class="home-wrap">
 
     <div class="home-title">Rocky Reborn</div>
-    <div class="home-version">v0.0.2 (Beta)</div>
+    <div class="home-version">Rocky Re-Done v0.0.2 (Beta)</div>
 
-    <!-- CLOCK + BATTERY -->
     <div class="home-status">
       <span id="clock">--:--</span>
       <span class="status-sep">•</span>
       <span id="battery">--%</span>
     </div>
 
-    <!-- SEARCH -->
+    <p id="splash"></p>
+
     <div class="proxy-wrap">
       <form id="sj-form">
-        <input id="sj-search-engine"
-               value="https://www.google.com/search?q=%s"
-               type="hidden" />
-        <input id="sj-address"
-               type="text"
-               placeholder="Enter a URL or search Google"
-               autocomplete="off" />
+        <input
+          id="sj-search-engine"
+          value="https://www.google.com/search?q=%s"
+          type="hidden"
+        />
+
+        <input
+          id="sj-address"
+          type="text"
+          placeholder="Enter a URL or search Google"
+          autocomplete="off"
+        />
       </form>
 
       <div id="sj-error"></div>
       <pre id="sj-error-code"></pre>
     </div>
 
-    <!-- ROCKY SPLASH -->
-    <p id="splash"></p>
-
-    <!-- ROCKY BUTTONS -->
     <div class="button-row">
-      <button onclick="window.open('https://rocky-stellar.vercel.app/', '_blank')">Rocky Interstellar</button>
-      <button onclick="window.open('https://sites.google.com/view/rocky-games', '_blank')">Go To The Old Rocky?</button>
-      <button onclick="window.open('https://sites.google.com/view/dust-games', '_blank')">Billy's Old Site???</button>
-      <button onclick="window.open('https://rockyreborn.vercel.app/update-logs.html', '_blank')">The Update Logs</button>
+      <button onclick="window.open('https://rocky-stellar.vercel.app/', '_blank')">
+        Rocky Interstellar
+      </button>
+
+      <button onclick="window.open('https://sites.google.com/view/rocky-games', '_blank')">
+        Go To The Old Rocky?
+      </button>
+
+      <button onclick="window.open('https://sites.google.com/view/dust-games', '_blank')">
+        Billy's Old Site???
+      </button>
+
+      <button onclick="window.open('https://rockyreborn.vercel.app/update-logs.html', '_blank')">
+        The Update Logs
+      </button>
     </div>
 
-    <!-- SOCIAL LINKS -->
     <div class="social-row">
       <a href="https://www.youtube.com/channel/UCBzG0y1s4QNZyfxsrt-QZ4Q" target="_blank">
         <img src="images/icons/youtube-logo.svg" alt="YouTube">
@@ -355,7 +328,7 @@
   </div>
 </main>
 
-<footer>
+<footer class="home-footer">
   <p>
     <a href="tos.html">Terms And Conditions (TOS)</a> |
     <a href="privacy-policy.html">Privacy Policy</a> |
@@ -366,8 +339,11 @@
   </p>
 
   <p>
-    A Website Made By The Rocky Reborn Team. A New Rocky Team (Without Evan) Since
-    <a href="https://howlongagogo.com/date/2023/november/26" target="_blank">November 26th, 2023</a>!!
+    A Website Made By The Rocky Reborn Team.
+    A New Rocky Team (Without Evan) Since
+    <a href="https://howlongagogo.com/date/2023/november/26" target="_blank">
+      November 26th, 2023
+    </a>!!
   </p>
 
   <p>
@@ -375,93 +351,83 @@
   </p>
 </footer>
 
-<!-- PROXY DETECTION -->
 <script>
-setInterval(() => {
-  const proxied = document.querySelector("iframe,.scramjet-frame,.bare-frame");
-  document.body.classList.toggle("sj-proxied", !!proxied);
-}, 500);
+  fetch('splash.json')
+    .then(res => res.json())
+    .then(data => {
+      document.querySelector('#splash').innerHTML =
+        data[Math.floor(Math.random() * data.length)];
+    })
+    .catch(() => {});
 </script>
 
-<!-- SIDE ICON SYNC -->
 <script>
-function getAccent() {
-  return localStorage.getItem("s0laceAccent") || "gray";
-}
-
-function updateSideIcons() {
-  const accent = getAccent();
-
-  document.querySelectorAll(".side-icon").forEach(link => {
-    const icon = link.dataset.icon;
-    const img = link.querySelector("img");
-    const active = link.href === location.href;
-
-    link.classList.toggle("active", active);
-    img.src = `thumbs/${icon}/${active ? accent : "gray"}.png`;
-  });
-}
-
-updateSideIcons();
-window.addEventListener("storage", updateSideIcons);
+  setInterval(() => {
+    const proxied = document.querySelector("iframe,.scramjet-frame,.bare-frame");
+    document.body.classList.toggle("sj-proxied", !!proxied);
+  }, 500);
 </script>
 
-<!-- CLOCK -->
 <script>
-function updateClock() {
-  const d = new Date();
-  let h = d.getHours();
-  const m = d.getMinutes().toString().padStart(2,"0");
-  const ampm = h >= 12 ? "PM" : "AM";
+  function getAccent() {
+    return localStorage.getItem("s0laceAccent") || "gray";
+  }
 
-  h = h % 12 || 12;
+  function updateSideIcons() {
+    const accent = getAccent();
 
-  document.getElementById("clock").textContent = `${h}:${m} ${ampm}`;
-}
+    document.querySelectorAll(".side-icon").forEach(link => {
+      const icon = link.dataset.icon;
+      const img = link.querySelector("img");
+      const active = link.href === location.href;
 
-updateClock();
-setInterval(updateClock, 1000);
+      link.classList.toggle("active", active);
+      img.src = `thumbs/${icon}/${active ? accent : "gray"}.png`;
+    });
+  }
+
+  updateSideIcons();
+  window.addEventListener("storage", updateSideIcons);
 </script>
 
-<!-- BATTERY -->
 <script>
-const batteryEl = document.getElementById("battery");
+  function updateClock() {
+    const d = new Date();
+    let h = d.getHours();
+    const m = d.getMinutes().toString().padStart(2, "0");
+    const ampm = h >= 12 ? "PM" : "AM";
 
-if ("getBattery" in navigator) {
-  navigator.getBattery().then(battery => {
+    h = h % 12 || 12;
 
-    function updateBattery() {
-      const percent = Math.round(battery.level * 100);
-      const charging = battery.charging;
+    document.getElementById("clock").textContent = `${h}:${m} ${ampm}`;
+  }
 
-      batteryEl.textContent =
-        (charging ? "" : "") + " " + percent + "%";
+  updateClock();
+  setInterval(updateClock, 1000);
 
-      batteryEl.style.color =
-        percent <= 15 ? "#ff5555" : "var(--accent)";
-    }
+  const batteryEl = document.getElementById("battery");
 
-    updateBattery();
+  if ("getBattery" in navigator) {
+    navigator.getBattery().then(battery => {
 
-    battery.addEventListener("levelchange", updateBattery);
-    battery.addEventListener("chargingchange", updateBattery);
-  });
-} else {
-  batteryEl.textContent = " N/A";
-}
+      function updateBattery() {
+        const percent = Math.round(battery.level * 100);
+
+        batteryEl.textContent = percent + "%";
+        batteryEl.style.color =
+          percent <= 15 ? "#ff5555" : "var(--accent)";
+      }
+
+      updateBattery();
+
+      battery.addEventListener("levelchange", updateBattery);
+      battery.addEventListener("chargingchange", updateBattery);
+    });
+  } else {
+    batteryEl.textContent = "N/A";
+  }
 </script>
 
-<!-- SPLASH MESSAGE -->
-<script>
-fetch('splash.json')
-  .then(res => res.json())
-  .then(data => {
-    document.querySelector('#splash').innerHTML =
-      data[Math.floor(Math.random() * data.length)];
-  });
-</script>
-
-<!-- Statuspage Embed Script -->
 <script src="https://rockystudios.statuspage.io/embed/script.js"></script>
 
 </body>
